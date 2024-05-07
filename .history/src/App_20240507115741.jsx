@@ -7,7 +7,7 @@ import MainPanel from "./components/MainPanel/MainPanel"
 import Approval from "./Pages/Approval/Approval"
 import Details from "./Pages/Approval/Details"
 import StorageLocation from "./Pages/StorageLocation/StorageLocation"
-import UserManegment from "./Pages/UserMangement/UserManegment"
+import UserManegment from "./Pages/UserManegment/UserManegment"
 
 
 
@@ -26,7 +26,7 @@ function App() {
             <Route path="/approval" element={<Approval />} />
             <Route path="/approval/1321" element={<Details />} />
             <Route path="/storage-location" element={<StorageLocation />} />
-            <Route path="/use-management" element={ <UserManegment/>} />
+            <Route path="/ use-management" element={ <UserManegment/>} />
           </Route>
         </Routes>
       </BrowserRouter>
