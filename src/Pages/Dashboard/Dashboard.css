@@ -1,3 +1,70 @@
-body{
-  background-color: #191c24;
+.circularItem {
+    width: 200px;
+    height: 200px;
+}
+
+
+@media screen and (max-width:991px) {
+    .dashboardMaterial {
+        display: flex;
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+        width: 100% !important;
+    }
+
+    .dashboardStatus {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100% !important;
+    }
+
+    .circularBar {
+        display: flex;
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .circularItem {
+        size: 25%;
+    }
+
+    .listContainer {
+        display: flex;
+        flex-direction: row !important;
+    }
+
+    .listItem {
+        width: 50% !important;
+    }
+
+    .cardContainer {
+        display: flex;
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cardItem {
+        width: 100% !important;
+    }
+
+    .chartContainer {
+        display: flex;
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+
+
+    .chartItem {
+        display: flex;
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+
 }
