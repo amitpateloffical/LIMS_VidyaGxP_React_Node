@@ -32,11 +32,8 @@ function Dashboard(props) {
     "ARPC0000098",
     "ARPC0000097",
     "ARPC0000096",
-    "ARIP0000095",
     "ARFFT0000094",
-    "ARIP0000095",
-    "ARFFT0000094",
-    "ARIP0000095",
+    "ARRW0000093",
     "ARRW0000093",
     "ARFFT0000091",
   ];
@@ -543,7 +540,7 @@ function Dashboard(props) {
     series: [
       {
         name: "Test Planned",
-        type: "bar",
+        type: "line",
         data: [
           6, 3, 1, 3, 4, 4, 3, 1, 9, 1, 8, 4, 6, 3, 7, 6, 4, 2, 2, 3, 6, 1, 9,
           3, 2, 7, 3, 5, 9, 1, 4, 6, 2, 1, 4, 5, 8, 2, 3, 7, 4, 9, 6, 3, 2, 8,
@@ -693,8 +690,8 @@ function Dashboard(props) {
           </div>
         </div>
         <div className="cardContainter d-flex gap-4 mb-4">
-          <div className="rounded px-3 w-75 bg-white shadow-lg">
-            <div className="d-flex justify-content-between pb-4">
+          <div className="rounded px-3 w-75 bg-white shadow-lg cardItem">
+            <div className="d-flex justify-content-between py-3">
               <div className="py-2 fw-bolder" style={{ color: "#343a40" }}>
                 Material
               </div>
@@ -818,7 +815,7 @@ function Dashboard(props) {
             </div>
           </div>
 
-          <div className="rounded w-25 listItem shadow-lg bg-white">
+          <div className="rounded w-25 listItem shadow-lg cardItem bg-white">
             <div className="h5 m-4 fw-bold"> Latest Products</div>
             <ul className="list-unstyled d-grid gap-3 text-muted mx-4">
               {latestProducts.map((product, idx) => {
@@ -832,7 +829,7 @@ function Dashboard(props) {
           </div>
         </div>
         <div className="cardContainter d-flex gap-4 mb-4">
-          <div className="shadow-lg bg-white rounded w-50 p-4">
+          <div className="shadow-lg cardItem bg-white rounded p-4" style={{ width: '37%' }}>
             <div className="d-flex justify-content-between">
               <div className="py-2 fw-bolder">
                 Analysis
@@ -842,10 +839,16 @@ function Dashboard(props) {
               </div>
             </div>
             <div className="mt-4">
-              <LineChart option={pieChartOptions} style={{ height: '400px' }} />
+              <LineChart option={pieChartOptions} />
             </div>
           </div>
-          <div className="rounded w-50 listItem shadow-lg bg-white">
+          <div className="rounded shadow-lg cardItem bg-white" style={{ width: '35%' }}>
+            <div className="py-4 mx-3 fw-bolder text-center">Test Stats</div>
+            <div className="pt-4">
+              <LineChart option={materialOption} />
+            </div>
+          </div>
+          <div className="rounded shadow-lg cardItem bg-white w-25">
             <div className="h5 m-4 fw-bold text-dark">AR Number</div>
             <ul className="list-unstyled d-grid gap-3 text-muted mx-4">
               {ARNumber.map((number, idx) => {
@@ -858,66 +861,35 @@ function Dashboard(props) {
             </ul>
           </div>
         </div>
-        <div className="cardFull mb-4">
-          <div className="rounded shadow-lg bg-white">
+        <div className="cardContainter d-flex gap-4 mb-4">
+          <div className="rounded shadow-lg cardItem bg-white w-50">
             <div className="py-4 fw-bolder text-center">Category wise Instruments</div>
             <div className="">
               <LineChart option={analysisOptions} className='p-4' />
             </div>
           </div>
-        </div>
-
-        <div className="chartContainer d-flex flex-wrap ">
-          <div className="my-4 w-50 rounded chartItem"
-            style={{
-              boxShadow: "0px 0px 10px black",
-              background: "#ffffff",
-            }}
-          >
-            <div className="py-4 mx-3 fw-bolder text-center">Test Stats</div>
-            <div className="pt-4">
-              <LineChart option={materialOption} />
-            </div>
-          </div>
-          <div
-            className="my-4  w-50  rounded cardItem"
-            style={{
-              boxShadow: "0px 0px 10px black",
-              background: "#ffffff",
-            }}
-          >
-            <div className="py-4 mx-3 fw-bolder">Material Status</div>
+          <div className="rounded shadow-lg cardItem bg-white w-50">
+            <div className="py-4 mx-3 fw-bolder text-center">Material Status</div>
             <div className="pt-4 mx-4">
               <LineChart option={funnelOption} />
             </div>
           </div>
-
-          <div
-            className="mb-4 w-50 rounded chartItem"
-            style={{
-              boxShadow: "0px 0px 10px black",
-              background: "#ffffff",
-            }}
-          >
+        </div>
+        <div className="cardContainter d-flex gap-4 mb-4">
+          <div className="w-50 rounded shadow-lg cardItem bg-white">
             <div className="py-4 mx-3 fw-bolder">Product Wise Test stats</div>
             <div className="pt-4 mx-4">
               <LineChart option={productWiseTestStatsOption} />
             </div>
           </div>
           <div
-            className="mb-4 w-50 rounded chartItem"
-            style={{
-              boxShadow: "0px 0px 10px black",
-              background: "#ffffff",
-            }}
-          >
+            className="w-50 rounded shadow-lg cardItem bg-white">
             <div className="py-4 mx-3 fw-bolder">Test Wise stats</div>
             <div className="pt-4 mx-5">
               <LineChart option={testWiseStatsOption} />
             </div>
           </div>
         </div>
-
       </div>
 
       <div>
