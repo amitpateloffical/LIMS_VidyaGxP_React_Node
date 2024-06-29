@@ -1,4 +1,5 @@
 import { CFooter, CHeader, CTable, CTableBody, CTableDataCell, CTableRow } from "@coreui/react"
+import React from 'react'
 
 
 function RegistrationDetails() {

@@ -34,6 +34,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import React from 'react';
+
 
 function Location() {
   const [addModal, setAddModal] = useState(false);

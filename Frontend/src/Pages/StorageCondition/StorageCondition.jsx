@@ -1,23 +1,14 @@
 import { useState } from "react";
 import {
   CButton,
-  CCol,
   CFormInput,
-  CFormSelect,
   CModal,
   CModalBody,
   CModalFooter,
   CModalHeader,
   CModalTitle,
-  CRow,
-  CTable,
-  CTableBody,
-  CTableDataCell,
-  CTableHead,
-  CTableHeaderCell,
-  CTableRow,
 } from "@coreui/react";
-import React from 'react';
+import React from "react";
 
 import {
   faEye,
@@ -34,60 +25,258 @@ import ATMButton from "../../components/ATM components/Button/ATMButton";
 import Table from "../../components/ATM components/Table/Table";
 import ViewModal from "../Modals/ViewModal";
 
-
 const initialData = [
-  { checkbox: false, sno: 1, conditionCode: "CC1", storageCondition: "SC1", createdAt: "2023-01-01", status: "Active", action: [
-    <FontAwesomeIcon icon={faEye}  key="view" className="mr-2 cursor-pointer" />,
-    <FontAwesomeIcon icon={faPenToSquare} key="edit" className="mr-2 cursor-pointer" />,
-    <FontAwesomeIcon icon={faTrashCan} key="delete" className="cursor-pointer" />
-  ] },
-  { checkbox: false, sno: 2, conditionCode: "CC2", storageCondition: "SC2", createdAt: "2023-02-01", status: "Active", action: [
-    <FontAwesomeIcon icon={faEye} key="view" className="mr-2 cursor-pointer" />,
-    <FontAwesomeIcon icon={faPenToSquare} key="edit" className="mr-2 cursor-pointer" />,
-    <FontAwesomeIcon icon={faTrashCan} key="delete" className="cursor-pointer" />
-  ] },
-  { checkbox: false, sno: 3, conditionCode: "CC3", storageCondition: "SC3", createdAt: "2023-03-01", status: "Inactive", action: [
-    <FontAwesomeIcon icon={faEye} key="view" className="mr-2 cursor-pointer" />,
-    <FontAwesomeIcon icon={faPenToSquare} key="edit" className="mr-2 cursor-pointer" />,
-    <FontAwesomeIcon icon={faTrashCan} key="delete" className="cursor-pointer" />
-  ] },
-  { checkbox: false, sno: 4, conditionCode: "CC4", storageCondition: "SC4", createdAt: "2023-04-01", status: "Active", action: [
-    <FontAwesomeIcon icon={faEye} key="view" className="mr-2 cursor-pointer" />,
-    <FontAwesomeIcon icon={faPenToSquare} key="edit" className="mr-2 cursor-pointer" />,
-    <FontAwesomeIcon icon={faTrashCan} key="delete" className="cursor-pointer" />
-  ] },
-  { checkbox: false, sno: 5, conditionCode: "CC5", storageCondition: "SC5", createdAt: "2023-05-01", status: "Inactive", action: [
-    <FontAwesomeIcon icon={faEye} key="view" className="mr-2 cursor-pointer" />,
-    <FontAwesomeIcon icon={faPenToSquare} key="edit" className="mr-2 cursor-pointer" />,
-    <FontAwesomeIcon icon={faTrashCan} key="delete" className="cursor-pointer" />
-  ] },
-  { checkbox: false, sno: 6, conditionCode: "CC6", storageCondition: "SC6", createdAt: "2023-06-01", status: "Active", action: [
-    <FontAwesomeIcon icon={faEye} key="view" className="mr-2 cursor-pointer" />,
-    <FontAwesomeIcon icon={faPenToSquare} key="edit" className="mr-2 cursor-pointer" />,
-    <FontAwesomeIcon icon={faTrashCan} key="delete" className="cursor-pointer" />
-  ] },
-  { checkbox: false, sno: 7, conditionCode: "CC7", storageCondition: "SC7", createdAt: "2023-07-01", status: "Inactive", action: [
-    <FontAwesomeIcon icon={faEye} key="view" className="mr-2 cursor-pointer" />,
-    <FontAwesomeIcon icon={faPenToSquare} key="edit" className="mr-2 cursor-pointer" />,
-    <FontAwesomeIcon icon={faTrashCan} key="delete" className="cursor-pointer" />
-  ] },
-  { checkbox: false, sno: 8, conditionCode: "CC8", storageCondition: "SC8", createdAt: "2023-08-01", status: "Active", action: [
-    <FontAwesomeIcon icon={faEye} key="view" className="mr-2 cursor-pointer" />,
-    <FontAwesomeIcon icon={faPenToSquare} key="edit" className="mr-2 cursor-pointer" />,
-    <FontAwesomeIcon icon={faTrashCan} key="delete" className="cursor-pointer" />
-  ] },
-  { checkbox: false, sno: 9, conditionCode: "CC9", storageCondition: "SC9", createdAt: "2023-09-01", status: "Inactive", action: [
-    <FontAwesomeIcon icon={faEye} key="view" className="mr-2 cursor-pointer" />,
-    <FontAwesomeIcon icon={faPenToSquare} key="edit" className="mr-2 cursor-pointer" />,
-    <FontAwesomeIcon icon={faTrashCan} key="delete" className="cursor-pointer" />
-  ] },
-  { checkbox: false, sno: 10, conditionCode: "CC10", storageCondition: "SC10", createdAt: "2023-10-01", status: "Active", action: [
-    <FontAwesomeIcon icon={faEye} key="view" className="mr-2 cursor-pointer" />,
-    <FontAwesomeIcon icon={faPenToSquare} key="edit" className="mr-2 cursor-pointer" />,
-    <FontAwesomeIcon icon={faTrashCan} key="delete" className="cursor-pointer" />
-  ] },
+  {
+    checkbox: false,
+    sno: 1,
+    conditionCode: "CC1",
+    storageCondition: "SC1",
+    createdAt: "2023-01-01",
+    status: "Active",
+    action: [
+      <FontAwesomeIcon
+        icon={faEye}
+        key="view"
+        className="mr-2 cursor-pointer"
+      />,
+      <FontAwesomeIcon
+        icon={faPenToSquare}
+        key="edit"
+        className="mr-2 cursor-pointer"
+      />,
+      <FontAwesomeIcon
+        icon={faTrashCan}
+        key="delete"
+        className="cursor-pointer"
+      />,
+    ],
+  },
+  {
+    checkbox: false,
+    sno: 2,
+    conditionCode: "CC2",
+    storageCondition: "SC2",
+    createdAt: "2023-02-01",
+    status: "Active",
+    action: [
+      <FontAwesomeIcon
+        icon={faEye}
+        key="view"
+        className="mr-2 cursor-pointer"
+      />,
+      <FontAwesomeIcon
+        icon={faPenToSquare}
+        key="edit"
+        className="mr-2 cursor-pointer"
+      />,
+      <FontAwesomeIcon
+        icon={faTrashCan}
+        key="delete"
+        className="cursor-pointer"
+      />,
+    ],
+  },
+  {
+    checkbox: false,
+    sno: 3,
+    conditionCode: "CC3",
+    storageCondition: "SC3",
+    createdAt: "2023-03-01",
+    status: "Inactive",
+    action: [
+      <FontAwesomeIcon
+        icon={faEye}
+        key="view"
+        className="mr-2 cursor-pointer"
+      />,
+      <FontAwesomeIcon
+        icon={faPenToSquare}
+        key="edit"
+        className="mr-2 cursor-pointer"
+      />,
+      <FontAwesomeIcon
+        icon={faTrashCan}
+        key="delete"
+        className="cursor-pointer"
+      />,
+    ],
+  },
+  {
+    checkbox: false,
+    sno: 4,
+    conditionCode: "CC4",
+    storageCondition: "SC4",
+    createdAt: "2023-04-01",
+    status: "Active",
+    action: [
+      <FontAwesomeIcon
+        icon={faEye}
+        key="view"
+        className="mr-2 cursor-pointer"
+      />,
+      <FontAwesomeIcon
+        icon={faPenToSquare}
+        key="edit"
+        className="mr-2 cursor-pointer"
+      />,
+      <FontAwesomeIcon
+        icon={faTrashCan}
+        key="delete"
+        className="cursor-pointer"
+      />,
+    ],
+  },
+  {
+    checkbox: false,
+    sno: 5,
+    conditionCode: "CC5",
+    storageCondition: "SC5",
+    createdAt: "2023-05-01",
+    status: "Inactive",
+    action: [
+      <FontAwesomeIcon
+        icon={faEye}
+        key="view"
+        className="mr-2 cursor-pointer"
+      />,
+      <FontAwesomeIcon
+        icon={faPenToSquare}
+        key="edit"
+        className="mr-2 cursor-pointer"
+      />,
+      <FontAwesomeIcon
+        icon={faTrashCan}
+        key="delete"
+        className="cursor-pointer"
+      />,
+    ],
+  },
+  {
+    checkbox: false,
+    sno: 6,
+    conditionCode: "CC6",
+    storageCondition: "SC6",
+    createdAt: "2023-06-01",
+    status: "Active",
+    action: [
+      <FontAwesomeIcon
+        icon={faEye}
+        key="view"
+        className="mr-2 cursor-pointer"
+      />,
+      <FontAwesomeIcon
+        icon={faPenToSquare}
+        key="edit"
+        className="mr-2 cursor-pointer"
+      />,
+      <FontAwesomeIcon
+        icon={faTrashCan}
+        key="delete"
+        className="cursor-pointer"
+      />,
+    ],
+  },
+  {
+    checkbox: false,
+    sno: 7,
+    conditionCode: "CC7",
+    storageCondition: "SC7",
+    createdAt: "2023-07-01",
+    status: "Inactive",
+    action: [
+      <FontAwesomeIcon
+        icon={faEye}
+        key="view"
+        className="mr-2 cursor-pointer"
+      />,
+      <FontAwesomeIcon
+        icon={faPenToSquare}
+        key="edit"
+        className="mr-2 cursor-pointer"
+      />,
+      <FontAwesomeIcon
+        icon={faTrashCan}
+        key="delete"
+        className="cursor-pointer"
+      />,
+    ],
+  },
+  {
+    checkbox: false,
+    sno: 8,
+    conditionCode: "CC8",
+    storageCondition: "SC8",
+    createdAt: "2023-08-01",
+    status: "Active",
+    action: [
+      <FontAwesomeIcon
+        icon={faEye}
+        key="view"
+        className="mr-2 cursor-pointer"
+      />,
+      <FontAwesomeIcon
+        icon={faPenToSquare}
+        key="edit"
+        className="mr-2 cursor-pointer"
+      />,
+      <FontAwesomeIcon
+        icon={faTrashCan}
+        key="delete"
+        className="cursor-pointer"
+      />,
+    ],
+  },
+  {
+    checkbox: false,
+    sno: 9,
+    conditionCode: "CC9",
+    storageCondition: "SC9",
+    createdAt: "2023-09-01",
+    status: "Inactive",
+    action: [
+      <FontAwesomeIcon
+        icon={faEye}
+        key="view"
+        className="mr-2 cursor-pointer"
+      />,
+      <FontAwesomeIcon
+        icon={faPenToSquare}
+        key="edit"
+        className="mr-2 cursor-pointer"
+      />,
+      <FontAwesomeIcon
+        icon={faTrashCan}
+        key="delete"
+        className="cursor-pointer"
+      />,
+    ],
+  },
+  {
+    checkbox: false,
+    sno: 10,
+    conditionCode: "CC10",
+    storageCondition: "SC10",
+    createdAt: "2023-10-01",
+    status: "Active",
+    action: [
+      <FontAwesomeIcon
+        icon={faEye}
+        key="view"
+        className="mr-2 cursor-pointer"
+      />,
+      <FontAwesomeIcon
+        icon={faPenToSquare}
+        key="edit"
+        className="mr-2 cursor-pointer"
+      />,
+      <FontAwesomeIcon
+        icon={faTrashCan}
+        key="delete"
+        className="cursor-pointer"
+      />,
+    ],
+  },
 ];
-
 
 function StorageLocation() {
   const [data, setData] = useState(initialData);
@@ -113,7 +302,6 @@ function StorageLocation() {
 
   const onViewDetails = (rowData) => {
     setViewModalData(rowData);
-   
   };
 
   const handleCheckboxChange = (index) => {
@@ -124,7 +312,11 @@ function StorageLocation() {
 
   const StatusModal = (_props) => {
     return (
-      <CModal alignment="center" visible={_props.visible} onClose={_props.closeModal}>
+      <CModal
+        alignment="center"
+        visible={_props.visible}
+        onClose={_props.closeModal}
+      >
         <CModalHeader>
           <CModalTitle>New Storage Condition</CModalTitle>
         </CModalHeader>
@@ -142,7 +334,10 @@ function StorageLocation() {
   };
 
   const columns = [
-    { header: <input type="checkbox" onChange={handleSelectAll} />, accessor: "checkbox" },
+    {
+      header: <input type="checkbox" onChange={handleSelectAll} />,
+      accessor: "checkbox",
+    },
     { header: "SrNo.", accessor: "sno" },
     { header: "Condition Code", accessor: "conditionCode" },
     { header: "Stability Storage Condition", accessor: "storageCondition" },
@@ -153,8 +348,15 @@ function StorageLocation() {
       accessor: "action",
       Cell: ({ row }) => (
         <>
-          <FontAwesomeIcon icon={faEye} className="mr-2 cursor-pointer" onClick={() => onViewDetails(row)} />
-          <FontAwesomeIcon icon={faPenToSquare} className="mr-2 cursor-pointer" />
+          <FontAwesomeIcon
+            icon={faEye}
+            className="mr-2 cursor-pointer"
+            onClick={() => onViewDetails(row)}
+          />
+          <FontAwesomeIcon
+            icon={faPenToSquare}
+            className="mr-2 cursor-pointer"
+          />
           <FontAwesomeIcon icon={faTrashCan} className="cursor-pointer" />
         </>
       ),
@@ -175,7 +377,12 @@ function StorageLocation() {
 
   const DeleteModal = (_props) => {
     return (
-      <CModal alignment="center" visible={_props.visible} onClose={_props.closeModal} size="lg">
+      <CModal
+        alignment="center"
+        visible={_props.visible}
+        onClose={_props.closeModal}
+        size="lg"
+      >
         <CModalHeader>
           <CModalTitle>Delete User</CModalTitle>
         </CModalHeader>
@@ -209,7 +416,9 @@ function StorageLocation() {
   };
 
   const handleDeleteConfirm = () => {
-    setStorageConditions((prevConditions) => prevConditions.filter((condition) => condition.id !== deleteId));
+    setStorageConditions((prevConditions) =>
+      prevConditions.filter((condition) => condition.id !== deleteId)
+    );
     setDeleteModal(false);
   };
 
@@ -234,15 +443,30 @@ function StorageLocation() {
             />
           </div>
           <div className="float-right">
-            <ATMButton text="Add Storage Condition" color="blue" onClick={openModal} />
+            <ATMButton
+              text="Add Storage Condition"
+              color="blue"
+              onClick={openModal}
+            />
           </div>
         </div>
-        <Table columns={columns} data={filteredData} onCheckboxChange={handleCheckboxChange} onViewDetails={onViewDetails} />
+        <Table
+          columns={columns}
+          data={filteredData}
+          onCheckboxChange={handleCheckboxChange}
+          onViewDetails={onViewDetails}
+        />
       </div>
 
-      {isModalOpen && <StatusModal visible={isModalOpen} closeModal={closeModal} />}
-      {viewModalData && <ViewModal visible={viewModalData} closeModal={closeViewModal} />}
-      {delModal && <RemoveModal visible={delModal} closeModal={() => setDelModal(false)} />}
+      {isModalOpen && (
+        <StatusModal visible={isModalOpen} closeModal={closeModal} />
+      )}
+      {viewModalData && (
+        <ViewModal visible={viewModalData} closeModal={closeViewModal} />
+      )}
+      {delModal && (
+        <RemoveModal visible={delModal} closeModal={() => setDelModal(false)} />
+      )}
       {deleteModal && (
         <DeleteModal
           visible={deleteModal}

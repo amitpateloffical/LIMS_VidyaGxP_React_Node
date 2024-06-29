@@ -18,7 +18,7 @@ import {
 } from "@coreui/react";
 import { faPenToSquare, faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import React,{ useState } from "react";
 
 function InstrumentCategory() {
     const pageSize = 5;

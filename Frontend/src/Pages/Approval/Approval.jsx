@@ -306,11 +306,14 @@
 
 // export default Approval;
 
-
-import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
-import Table from '../../components/ATM components/Table/Table';
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faEye,
+  faPenToSquare,
+  faTrashCan,
+} from "@fortawesome/free-solid-svg-icons";
+import Table from "../../components/ATM components/Table/Table";
 
 const initialData = [
   {
@@ -390,7 +393,7 @@ const initialData = [
   },
 ];
 
-const App = () => {
+const Approval = () => {
   const [data, setData] = useState(initialData);
 
   const handleCheckboxChange = (index) => {
@@ -436,4 +439,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Approval;

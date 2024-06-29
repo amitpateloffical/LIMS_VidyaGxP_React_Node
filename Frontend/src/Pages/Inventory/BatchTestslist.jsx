@@ -26,8 +26,10 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import React from 'react';
 
-function BatchTestslist() {
+
+ function BatchTestslist() {
   const [addModal, setAddModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState("All");

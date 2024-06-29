@@ -16,6 +16,8 @@ import {
   CTableRow,
   CFormSelect,
 } from "@coreui/react";
+import React from 'react';
+
 import {
   faEye,
   faPenToSquare,
